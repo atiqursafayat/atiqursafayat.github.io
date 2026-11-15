@@ -1,7 +1,7 @@
-# Atiqur Safayat — Portfolio
+# Atiqur Safayat, portfolio
 
-This repo contains my personal portfolio website.
+Source of my personal portfolio: the websites, internal tools, automation and AI work I build.
 
-**Live site:** [atiqursafayat.github.io/portfolio](https://atiqursafayat.github.io/portfolio/)
+**Live site:** [atiqursafayat.github.io](https://atiqursafayat.github.io/)
 
-Built with pure HTML, CSS & JavaScript — no frameworks, no dependencies.
+Plain HTML and CSS, no framework and no build step. The typeface is Chivo Mono, self-hosted under the SIL Open Font License (see `assets/fonts/OFL.txt`). The page follows the system's light or dark setting.

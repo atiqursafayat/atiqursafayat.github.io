@@ -5,274 +5,219 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Atiqur Safayat | Web platforms, internal tools, automation and AI</title>
 <meta name="description" content="Atiqur Safayat builds websites, internal tools and automations that teams use every day, and brings AI into that work. Team lead at Songjog Foundation, Dhaka.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{
-  --paper:#F5F7F6; --surface:#FFFFFF; --ink:#13232B; --muted:#56666D; --line:#D9E1E0;
-  --teal:#1C7F72; --teal-soft:#E3F1EE; --live:#2E9E5B; --test:#C98A12;
-  --font:"Schibsted Grotesk", "Segoe UI", Helvetica, Arial, sans-serif;
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark){
-  :root{ --paper:#0F1B20; --surface:#15252B; --ink:#E7EEEC; --muted:#9DB0B3; --line:#26383E;
-    --teal:#4FC1AF; --teal-soft:#16342F; --live:#53C47F; --test:#E2AE45; color-scheme: dark; }
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6}
-a{color:var(--teal);text-underline-offset:3px}
-a:focus-visible,button:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:4px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-header.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
-.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--ink)}
-.brand img{width:40px;height:40px;border-radius:50%;object-fit:cover}
-nav a{color:var(--ink);text-decoration:none;margin-left:22px;font-weight:500}
-nav a:hover{color:var(--teal)}
-
-/* hero */
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:56px 0 72px}
-.hero h1{font-size:clamp(2.3rem,5vw,3.6rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 20px;font-weight:800;max-width:14ch}
-.hero p{font-size:1.15rem;color:var(--muted);max-width:52ch;margin:0 0 28px}
-.actions{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-block;padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--teal)}
-.btn.primary{background:var(--teal);color:#fff}
-.btn.ghost{color:var(--teal)}
-@media (prefers-color-scheme: dark){ .btn.primary{color:#0F1B20} }
-
-/* the one bold element: a live board of the systems I run */
-.board{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 22px 14px;box-shadow:0 1px 0 var(--line)}
-.board h2{font-size:1rem;margin:0 0 4px;font-weight:700}
-.board .sub{font-size:.9rem;color:var(--muted);margin:0 0 14px}
-.board ul{list-style:none;margin:0;padding:0}
-.board li{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid var(--line);font-size:.98rem}
-.board li a{color:var(--ink);text-decoration:none;font-weight:500}
-.board li a:hover{color:var(--teal);text-decoration:underline}
-.state{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--muted);white-space:nowrap}
-.dot{width:9px;height:9px;border-radius:50%;background:var(--live);box-shadow:0 0 0 0 var(--live)}
-.dot.test{background:var(--test)}
-@media (prefers-reduced-motion: no-preference){
-  .dot.pulse{animation:pulse 2.4s ease-out 1.2s 3}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(46,158,91,.5)}100%{box-shadow:0 0 0 9px rgba(46,158,91,0)}}
-}
-
-section{padding:64px 0;border-top:1px solid var(--line)}
-section h2.title{font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.01em;margin:0 0 10px;font-weight:800}
-section .lede{color:var(--muted);max-width:60ch;margin:0 0 36px}
-
-/* work */
-.group{margin-bottom:44px}
-.group h3{font-size:1.2rem;margin:0 0 16px}
-.work{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.item{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
-.item.wide{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;border-left:5px solid var(--teal)}
-.item h4{margin:0 0 6px;font-size:1.08rem}
-.item h4 a{color:var(--ink)}
-.item p{margin:0 0 10px;color:var(--muted);font-size:.97rem}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
-.tags li{font-size:.8rem;background:var(--teal-soft);color:var(--teal);padding:3px 10px;border-radius:999px;font-weight:500}
-.role{font-size:.92rem;color:var(--ink)}
-
-/* about */
-.about{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-.about p{max-width:56ch}
-.path{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
-.path li{position:relative;padding:0 0 18px 22px}
-.path li::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--teal)}
-.path li:first-child::before{background:var(--teal)}
-.path strong{display:block}
-.path span{color:var(--muted);font-size:.92rem}
-
-/* skills */
-.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
-.skills h3{font-size:1rem;margin:0 0 8px}
-.skills p{margin:0;color:var(--muted);font-size:.96rem}
-
-/* contact */
-.contact{background:var(--teal);color:#fff;border-radius:22px;padding:44px;margin:64px 0;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-.contact h2{margin:0 0 6px;font-size:clamp(1.5rem,3vw,2rem)}
-.contact p{margin:0;opacity:.9;max-width:48ch}
-.contact a.btn{background:#fff;color:var(--teal);border-color:#fff}
-@media (prefers-color-scheme: dark){ .contact{color:#0F1B20} .contact a.btn{background:#0F1B20;color:var(--teal);border-color:#0F1B20} }
-footer{padding:0 0 40px;color:var(--muted);font-size:.9rem}
-
-@media (max-width:860px){
-  .hero,.about{grid-template-columns:1fr}
-  .work{grid-template-columns:1fr}
-  .item.wide{grid-column:auto;grid-template-columns:1fr}
-  .skills{grid-template-columns:1fr 1fr}
-  nav a{margin-left:14px}
-}
-@media (max-width:520px){ nav{display:none} .skills{grid-template-columns:1fr} .contact{padding:30px} }
-</style>
+<meta name="color-scheme" content="light dark">
+<link rel="preload" href="assets/fonts/chivo-mono-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/chivo-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <a class="brand" href="#"><img src="https://github.com/atiqursafayat.png" alt="Atiqur Safayat">Atiqur Safayat</a>
-    <nav aria-label="Main">
-      <a href="#work">Work</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
-    </nav>
-  </header>
+<a class="skip" href="#main">Skip to content</a>
 
-  <main>
-    <div class="hero">
-      <div>
-        <h1>I build the systems a whole organization runs on.</h1>
-        <p>Websites, internal tools and automations that teams use every day, and lately AI on top of them. I'm a team lead at Songjog Foundation in Dhaka, finishing my CSE degree, and open to work in any industry.</p>
-        <div class="actions">
-          <a class="btn primary" href="#work">See my work</a>
-          <a class="btn ghost" href="mailto:atiqursafayat@gmail.com">Email me</a>
+<header class="site-nav">
+  <div class="container">
+    <a class="brand" href="#" aria-label="Atiqur Safayat, back to top"><img src="https://github.com/atiqursafayat.png" alt="" width="40" height="40"><span>Atiqur Safayat</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="hero__head">
+        <h1 id="hero-title">I build the systems organizations run on.</h1>
+        <div class="hero__aside">
+          <p class="lead">Websites, internal tools and automations teams use daily, and AI on top.</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="#work">See my work</a>
+            <a class="btn" href="mailto:atiqursafayat@gmail.com">Email me</a>
+          </div>
         </div>
       </div>
-      <aside class="board" aria-label="Systems I built that are running now">
-        <h2>Running right now</h2>
-        <p class="sub">Systems I built or led, in daily use</p>
-        <ul>
-          <li><a href="https://songjog.org">songjog.org</a><span class="state"><span class="dot pulse"></span>Live</span></li>
-          <li><a href="https://songjogcare.com">songjogcare.com</a><span class="state"><span class="dot"></span>Live</span></li>
-          <li><a href="https://caregiver.songjogcare.com">Caregiver portal</a><span class="state"><span class="dot"></span>Live</span></li>
-          <li><a href="https://songjogshop.com">songjogshop.com</a><span class="state"><span class="dot"></span>Live</span></li>
-          <li><a href="https://verify.songjog.org">Certificate check</a><span class="state"><span class="dot"></span>Live</span></li>
-          <li><span>Care home records app</span><span class="state"><span class="dot"></span>In daily use</span></li>
-          <li><a href="https://svb.songjog.org">Volunteer portal</a><span class="state"><span class="dot test"></span>Final testing</span></li>
-        </ul>
-      </aside>
+
+      <div class="board" role="region" aria-labelledby="board-title">
+        <div class="board__top">
+          <h2 id="board-title">Running right now</h2>
+          <p>Systems I built or led, in daily use</p>
+        </div>
+        <table>
+          <thead>
+            <tr><th scope="col">System</th><th scope="col">What it is</th><th scope="col">Built with</th><th scope="col">State</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><a href="https://songjog.org">songjog.org</a></td><td class="what">Main site of Songjog Bangladesh</td><td class="stack">Odoo, Python</td><td class="state-cell"><span class="state">Live</span></td></tr>
+            <tr><td><a href="https://songjogcare.com">songjogcare.com</a></td><td class="what">Home-care service for families</td><td class="stack">TypeScript</td><td class="state-cell"><span class="state">Live</span></td></tr>
+            <tr><td><a href="https://caregiver.songjogcare.com">Caregiver portal</a></td><td class="what">Where caregivers find work</td><td class="stack">TypeScript</td><td class="state-cell"><span class="state">Live</span></td></tr>
+            <tr><td><a href="https://songjogshop.com">songjogshop.com</a></td><td class="what">Online shop with bKash payments</td><td class="stack">Laravel, Bagisto</td><td class="state-cell"><span class="state">Live</span></td></tr>
+            <tr><td><a href="https://verify.songjog.org">Certificate check</a></td><td class="what">Public check for training certificates</td><td class="stack">PHP, AppSheet</td><td class="state-cell"><span class="state">Live</span></td></tr>
+            <tr><td>Care home records app</td><td class="what">Residents, vital signs, visits and stock</td><td class="stack">AppSheet</td><td class="state-cell"><span class="state">In daily use</span></td></tr>
+            <tr><td><a href="https://svb.songjog.org">Volunteer portal</a></td><td class="what">Songjog’s volunteer network</td><td class="stack">Django</td><td class="state-cell"><span class="state state--testing">Final testing</span></td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </section>
 
-    <section id="work">
-      <h2 class="title">Work</h2>
-      <p class="lede">Most of my work so far is for Songjog Foundation, a nonprofit registered in Bangladesh and the USA that runs home care, a care and rehabilitation home, skills and IT training, scholarships, an online shop and a volunteer network. That means I've built for healthcare, education, e-commerce, donations and day-to-day operations.</p>
+  <section id="work" class="section section--rule" aria-labelledby="work-title">
+    <div class="container">
+      <div class="head-split">
+        <h2 id="work-title">Work</h2>
+        <p>Most of my work so far is for Songjog Foundation, a nonprofit registered in Bangladesh and the USA that runs home care, a care and rehabilitation home, skills and IT training, scholarships, an online shop and a volunteer network. That means I’ve built for healthcare, education, e-commerce, donations and day-to-day operations.</p>
+      </div>
 
-      <div class="group">
-        <h3>Websites and platforms</h3>
-        <div class="work">
-          <article class="item wide">
-            <div>
-              <h4><a href="https://songjogcare.com">Songjog Care</a></h4>
-              <p>A home-care service where families find caregivers and caregivers find work. I built the UI and frontend of the client site and the caregiver portal, designed the mobile app, and planned the features and user flows with the development team.</p>
-            </div>
-            <div>
-              <p class="role">Live at <a href="https://songjogcare.com">songjogcare.com</a> and <a href="https://caregiver.songjogcare.com">caregiver.songjogcare.com</a>. <a href="https://github.com/atiqursafayat/songjog-care-platform">Project notes</a></p>
-              <ul class="tags"><li>TypeScript</li><li>UI design</li><li>Product planning</li></ul>
-            </div>
-          </article>
-          <article class="item">
+      <article class="case">
+        <div class="case__text">
+          <h3><a href="https://songjogcare.com">Songjog Care</a></h3>
+          <p>A home-care service where families find caregivers and caregivers find work. I built the UI and frontend of the client site and the caregiver portal, designed the mobile app, and planned the features and user flows with the development team.</p>
+          <p class="role">Live at <a href="https://songjogcare.com">songjogcare.com</a> and <a href="https://caregiver.songjogcare.com">caregiver.songjogcare.com</a>. <a href="https://github.com/atiqursafayat/songjog-care-platform">Project notes</a></p>
+          <ul class="tags"><li>TypeScript</li><li>UI design</li><li>Product planning</li></ul>
+        </div>
+        <figure class="case__shot">
+          <picture>
+            <source type="image/webp" srcset="assets/img/songjogcare-home-960.webp 960w, assets/img/songjogcare-home-1440.webp 1440w" sizes="(min-width: 60rem) 56vw, 100vw">
+            <img src="assets/img/songjogcare-home-1440.jpg" srcset="assets/img/songjogcare-home-960.jpg 960w, assets/img/songjogcare-home-1440.jpg 1440w" sizes="(min-width: 60rem) 56vw, 100vw" width="1440" height="745" alt="The Songjog Care home page: the professional caregiving headline, booking and training buttons, and a phone showing the app" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>The client site at songjogcare.com, with a test account signed in.</figcaption>
+        </figure>
+      </article>
+
+      <div class="index">
+        <div class="index__group">
+          <h3>Websites and platforms</h3>
+          <article>
             <h4><a href="https://songjog.org">songjog.org</a></h4>
             <p>The main site of Songjog Bangladesh. I designed it, planned the features and set it up on Odoo. <a href="https://github.com/atiqursafayat/songjog-website">Project notes</a></p>
             <ul class="tags"><li>Odoo</li><li>Python</li><li>Design</li></ul>
           </article>
-          <article class="item">
+          <article>
             <h4><a href="https://songjogshop.com">songjogshop.com</a></h4>
             <p>Online shop on Bagisto. I upgraded an open-source bKash payment gateway to the bKash API v2 and <a href="https://packagist.org/packages/atiqursafayat/bagisto-bkash-v2">published it</a>.</p>
             <ul class="tags"><li>Laravel</li><li>Bagisto</li><li>Payments</li></ul>
           </article>
-          <article class="item">
+          <article>
             <h4><a href="https://songjogfoundation.org">songjogfoundation.org</a></h4>
             <p>Turned a static page into a dynamic WordPress site and redesigned it.</p>
             <ul class="tags"><li>WordPress</li><li>Design</li></ul>
           </article>
-          <article class="item">
+          <article>
             <h4><a href="https://verify.songjog.org">verify.songjog.org</a></h4>
             <p>Anyone can check a Songjog training certificate here. It pulls records from our training system.</p>
             <ul class="tags"><li>PHP</li><li>AppSheet</li></ul>
           </article>
-          <article class="item">
+          <article>
             <h4><a href="https://svb.songjog.org">svb.songjog.org</a></h4>
-            <p>Website and portal for Songjog's volunteer network, in final testing.</p>
+            <p>Website and portal for Songjog’s volunteer network, in final testing.</p>
             <ul class="tags"><li>Django</li><li>Python</li></ul>
           </article>
-          <article class="item">
+          <article>
             <h4><a href="https://pilot-isd.songjog.org">Skills training platform</a></h4>
             <p>Built by an outside team. I worked out the features, flows and UI guidelines with them.</p>
             <ul class="tags"><li>Product planning</li><li>UI guidelines</li></ul>
           </article>
         </div>
-      </div>
 
-      <div class="group">
-        <h3>Internal apps and automation</h3>
-        <div class="work">
-          <article class="item">
+        <div class="index__group">
+          <h3>Internal apps and automation</h3>
+          <article>
             <h4><a href="https://github.com/atiqursafayat/songjog-carehome-app">Care home records</a></h4>
             <p>Resident profiles, vital signs, hospital visits and stock for a care and rehabilitation home. Used by the staff every day.</p>
             <ul class="tags"><li>AppSheet</li><li>Google Workspace</li></ul>
           </article>
-          <article class="item">
+          <article>
             <h4><a href="https://github.com/atiqursafayat/songjog-qurbani-management">Qurbani management</a></h4>
             <p>Matches donors with sacrifices, assigns volunteers and sends receipts, every Eid.</p>
             <ul class="tags"><li>AppSheet</li><li>Apps Script</li></ul>
           </article>
-          <article class="item">
+          <article>
             <h4>Training, scholarships and outreach</h4>
             <p>Apps for caregiver training and certificates, scholarship records, inventory, and email campaigns with MailReach.</p>
             <ul class="tags"><li>AppSheet</li><li>Apps Script</li></ul>
           </article>
-          <article class="item">
+          <article>
+            <h4>IT setup for the whole team</h4>
+            <p>I set up Songjog’s IT: Google Workspace, email routing, and automations with Make.com and Retool.</p>
+            <ul class="tags"><li>Google Workspace</li><li>Make.com</li><li>Retool</li></ul>
+          </article>
+          <article>
             <h4>Electricity balance alerts</h4>
             <p>A daily check of the office electricity meter balance that posts the result to the team on Google Chat.</p>
             <ul class="tags"><li>Automation</li><li>Google Chat</li></ul>
           </article>
         </div>
-      </div>
 
-      <div class="group">
-        <h3>AI, hardware and media</h3>
-        <div class="work">
-          <article class="item">
+        <div class="index__group">
+          <h3>AI, hardware and media</h3>
+          <article>
             <h4><a href="https://github.com/atiqursafayat/bondhu-companion-robot">BONDHU</a></h4>
-            <p>A companion robot for elderly people. It talks with the user, notices when someone is in the room with an mmWave radar and gives reminders.</p>
+            <p>A companion robot for elderly people. It talks with the user, notices when someone is in the room with an mmWave radar and gives reminders. It started as my Microprocessors Lab project, and I built its full software, AI and voice pipeline.</p>
             <ul class="tags"><li>Python</li><li>Raspberry Pi</li><li>Voice AI</li></ul>
           </article>
-          <article class="item">
+          <article>
             <h4>Jotner Pesha (Care as a Profession)</h4>
             <p>A published Bangla animated series for caregiver training and recruitment. I built the animation pipeline.</p>
             <ul class="tags"><li>Remotion</li><li>Motion</li></ul>
           </article>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="about">
-      <h2 class="title">About</h2>
-      <div class="about">
-        <div>
-          <p>I joined Songjog Foundation as a volunteer during COVID in 2020. There was no tech team, so I learned design by designing, then video, then code, and took on whatever the organization needed: email and workspace setup, websites, internal apps, and later monitoring of staff and programs.</p>
-          <p>Today I lead that work while studying Computer Science and Engineering at United International University. I like the whole path of a system: understanding how people work, planning it, building it, and keeping it running.</p>
-        </div>
-        <ol class="path" aria-label="My path at Songjog Foundation">
-          <li><strong>Team Lead, MEAL</strong><span>Jan 2026 to now</span></li>
-          <li><strong>Technical and Branding Lead</strong><span>2024 to 2026</span></li>
-          <li><strong>Branding Lead, then Technical Support</strong><span>2022 to 2023</span></li>
-          <li><strong>Graphics Designer</strong><span>2021 to 2022</span></li>
-          <li><strong>Volunteer</strong><span>2020</span></li>
-        </ol>
+  <section class="statement" aria-label="How I work">
+    <div class="container">
+      <p>I like the whole path of a system: understanding how people work, planning it, building it, and keeping it running.</p>
+    </div>
+  </section>
+
+  <section id="about" class="section" aria-labelledby="about-title">
+    <div class="container about">
+      <div class="about__text">
+        <h2 id="about-title">About</h2>
+        <p>I joined Songjog Foundation as a volunteer during COVID in 2020. There was no tech team, so I learned design by designing, then video, then code, and took on whatever the organization needed: email and workspace setup, websites, internal apps, and later monitoring of staff and programs.</p>
+        <p>Today I lead that work while studying Computer Science and Engineering at United International University. Next, I want to bring the same skills to teams in other industries.</p>
       </div>
-    </section>
+      <ol class="path" aria-label="My path at Songjog Foundation">
+        <li><strong>Team Lead, MEAL</strong><span>Jan 2026 to now</span></li>
+        <li><strong>Technical and Branding Lead</strong><span>2024 to 2026</span></li>
+        <li><strong>Branding Lead, then Technical Support</strong><span>2022 to 2023</span></li>
+        <li><strong>Graphics Designer</strong><span>2021 to 2022</span></li>
+        <li><strong>Volunteer</strong><span>2020</span></li>
+      </ol>
+    </div>
+  </section>
 
-    <section id="skills">
-      <h2 class="title">Skills</h2>
+  <section id="skills" class="section section--rule section--skills" aria-labelledby="skills-title">
+    <div class="container">
+      <h2 id="skills-title">Skills</h2>
       <div class="skills">
         <div><h3>Build</h3><p>Python, Django, TypeScript, JavaScript, React, PHP, Laravel, Java, C, C++, HTML, CSS, SQL, PostgreSQL, MySQL</p></div>
         <div><h3>Platforms</h3><p>Odoo, WordPress, Bagisto, AppSheet, Apps Script, Retool, Make.com, Salesforce</p></div>
         <div><h3>Infrastructure</h3><p>Google Workspace, Microsoft 365 admin, Azure, Google Cloud, Docker, Linux, Git, Raspberry Pi</p></div>
         <div><h3>Design and media</h3><p>Figma, Illustrator, Photoshop, Premiere Pro, Canva, Remotion, motion graphics</p></div>
       </div>
-    </section>
-
-    <div class="contact" id="contact">
-      <div>
-        <h2>Need a website, an internal tool or an automation?</h2>
-        <p>I'm open to projects and roles in any industry. Tell me what your team is trying to do.</p>
-      </div>
-      <a class="btn" href="mailto:atiqursafayat@gmail.com">atiqursafayat@gmail.com</a>
     </div>
-  </main>
+  </section>
 
-  <footer>
-    <a href="https://github.com/atiqursafayat">GitHub</a> &nbsp; <a href="https://www.linkedin.com/in/atiqur-safayat">LinkedIn</a> &nbsp; Dhaka, Bangladesh
-  </footer>
-</div>
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div>
+        <h2 id="contact-title">Need a website, an internal tool or an automation?</h2>
+        <p>I’m open to projects and roles in any industry. Tell me what your team is trying to do.</p>
+      </div>
+      <a class="contact__mail" href="mailto:atiqursafayat@gmail.com">atiqursafayat@gmail.com</a>
+    </div>
+  </section>
+</main>
+
+<footer class="colophon">
+  <div class="container">
+    <p>Atiqur Safayat, Dhaka, Bangladesh. Also on <a href="https://github.com/atiqursafayat">GitHub</a> and <a href="https://www.linkedin.com/in/atiqur-safayat">LinkedIn</a>.</p>
+  </div>
+</footer>
 </body>
 </html>
